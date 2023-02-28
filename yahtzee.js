@@ -64,5 +64,5 @@ const yahtzee = {
     },
 
 }
-console.log(yahtzee.straight([1,2,3,4,2]))
+
 module.exports = yahtzee;
