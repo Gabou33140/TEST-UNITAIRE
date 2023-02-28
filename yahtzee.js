@@ -22,51 +22,18 @@ const yahtzee = {
         var tab = main.filter(num => num == number) 
         return tab.reduce((acc, curr) => acc + curr,0)
     },
-
-    twos : function (main) {
-        var tab1 = main.filter(num => num == 2) 
-        return tab1.length * 2
-    },
-
-    threes : function (main) {
-        var tab1 = main.filter(num => num == 3) 
-        return tab1.length * 3
-    },
-
-    fours : function (main) {
-        var tab1 = main.filter(num => num == 4) 
-        return tab1.length * 4
-    },
-
-    fives : function (main) {
-        var tab1 = main.filter(num => num == 5) 
-        return tab1.length * 5
-    },
-
-    sixs : function (main) {
-        var tab1 = main.filter(num => num == 6) 
-        return tab1.length * 6
-    },
-
-    three_of_a_kind : function (main) {
+    
+    three_four_five : function (main,number) {
         for (k=1;k<=6;k++){
             tabk = main.filter(num => num == k)
-            if (tabk.length >= 3){
+            if (tabk.length >= number){
+                if (number==5) return 50
                 return main.reduce((acc, curr) => acc + curr,0)
             }
         }
         return 0
     },
-
-    four_of_a_kind : function (main) {
-        for (k=1;k<=6;k++){
-            tabk = main.filter(num => num == k)
-            if (tabk.length >= 4){
-                return main.reduce((acc, curr) => acc + curr,0)
-            }
-        }
-        return 0
-    },
+    
 
     full_house : function (main) {
         var brelan; var pair;
@@ -79,42 +46,23 @@ const yahtzee = {
         return result
     },
 
-    small_straight : function (main) {
+    straight : function (main) {
         var tab_sort = main.sort();
         var n = 0;
         for (let k =0; k<tab_sort.length-1;k++){
-            if (tab_sort[k+1]=tab_sort[k]+1){
+            if (tab_sort[k+1]==tab_sort[k]+1){
                 n++
             } 
         }
-        result = (n == 4) ? 30 : 0;
-        return result
-    },
-
-    large_straight : function (main) {
-        var tab_sort = main.sort();
-        for (let k =0; k<tab_sort.length-1;k++){
-            if (tab_sort[k+1]!=tab_sort[k]+1){
-                return 0
-            } 
-        }
-        return 40
+        if (n==4) return 40
+        if (n==3) return 30
+        return 0
     },
 
     chance : function (main) {
         return main.reduce((acc, curr) => acc + curr,0)
     },
 
-    yahtzee : function (main) {
-        for (k=1;k<=6;k++){
-            tabk = main.filter(num => num == k)
-            if (tabk.length = 5){
-                return 50
-            }
-        }
-        return 0
-    }   
-
 }
-
+console.log(yahtzee.straight([1,2,3,4,2]))
 module.exports = yahtzee;

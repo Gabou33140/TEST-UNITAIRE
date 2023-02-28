@@ -26,11 +26,11 @@ test('Test 6 dans la main', () => {
 });
 
 test('Test brelan', () => {
-    expect(yahtzee.three_of_a_kind([1,1,1,6,2])).toBe(11);
+    expect(yahtzee.three_four_five([1,1,1,6,2],3)).toBe(11);
 });
 
 test('Test 4 identique', () => {
-    expect(yahtzee.four_of_a_kind([1,1,1,1,2])).toBe(6);
+    expect(yahtzee.three_four_five([1,1,1,1,2],4)).toBe(6);
 });
 
 test('Test full house', () => {
@@ -38,11 +38,11 @@ test('Test full house', () => {
 });
 
 test('Test small straight', () => {
-    expect(yahtzee.small_straight([1,2,3,4,2])).toBe(30);
+    expect(yahtzee.straight([1,2,3,4,2])).toBe(30);
 });
 
 test('Test larg straight', () => {
-    expect(yahtzee.large_straight([1,2,3,4,5])).toBe(40);
+    expect(yahtzee.straight([1,2,3,4,5])).toBe(40);
 });
 
 test('Test chance', () => {
@@ -50,5 +50,5 @@ test('Test chance', () => {
 });
 
 test('Test yahtzee', () => {
-    expect(yahtzee.yahtzee([1,1,1,1,1])).toBe(50);
+    expect(yahtzee.three_four_five([1,1,1,1,1],5)).toBe(50);
 });
