@@ -24,3 +24,35 @@ test('Test 5 dans la main', () => {
 test('Test 6 dans la main', () => {
     expect(yahtzee.sixs([1,6,2,6,2])).toBe(12);
 });
+
+test('Test 6 dans la main', () => {
+    expect(yahtzee.sixs([1,6,2,6,2])).toBe(12);
+});
+
+test('Test brelan', () => {
+    expect(yahtzee.three_of_a_kind([1,1,1,6,2])).toBe(11);
+});
+
+test('Test 4 identique', () => {
+    expect(yahtzee.four_of_a_kind([1,1,1,1,2])).toBe(6);
+});
+
+test('Test full house', () => {
+    expect(yahtzee.full_house([1,1,1,2,2])).toBe(25);
+});
+
+test('Test small straight', () => {
+    expect(yahtzee.small_straight([1,2,3,4,2])).toBe(30);
+});
+
+test('Test larg straight', () => {
+    expect(yahtzee.large_straight([1,2,3,4,5])).toBe(40);
+});
+
+test('Test chance', () => {
+    expect(yahtzee.chance([1,2,3,4,5])).toBe(15);
+});
+
+test('Test yahtzee', () => {
+    expect(yahtzee.yahtzee([1,1,1,1,1])).toBe(50);
+});

@@ -46,35 +46,74 @@ const yahtzee = {
     sixs : function (main) {
         var tab1 = main.filter(num => num == 6) 
         return tab1.length * 6
-    }
+    },
 
-    // three_of_a_kind : function () {
+    three_of_a_kind : function (main) {
+        for (k=1;k<=6;k++){
+            tabk = main.filter(num => num == k)
+            if (tabk.length >= 3){
+                return main.reduce((acc, curr) => acc + curr,0)
+            }
+        }
+        return 0
+    },
 
-    // }
+    four_of_a_kind : function (main) {
+        for (k=1;k<=6;k++){
+            tabk = main.filter(num => num == k)
+            if (tabk.length >= 4){
+                return main.reduce((acc, curr) => acc + curr,0)
+            }
+        }
+        return 0
+    },
 
-    // four_of_a_kind : function () {
+    full_house : function (main) {
+        var brelan; var pair;
+        for (k=1;k<=6;k++){
+            tabk = main.filter(num => num == k)
+            if (tabk.length = 2) pair = true
+            if (tabk.length = 3) brelan = true
+        }
+        var result = (pair && brelan) ? 25 : 0
+        return result
+    },
 
-    // }
+    small_straight : function (main) {
+        var tab_sort = main.sort();
+        var n = 0;
+        for (let k =0; k<tab_sort.length-1;k++){
+            if (tab_sort[k+1]=tab_sort[k]+1){
+                n++
+            } 
+        }
+        result = (n == 4) ? 30 : 0;
+        return result
+    },
 
-    // full_house : function () {
+    large_straight : function (main) {
+        var tab_sort = main.sort();
+        for (let k =0; k<tab_sort.length-1;k++){
+            if (tab_sort[k+1]!=tab_sort[k]+1){
+                return 0
+            } 
+        }
+        return 40
+    },
 
-    // }
+    chance : function (main) {
+        return main.reduce((acc, curr) => acc + curr,0)
+    },
 
-    // small_straight : function () {
-
-    // }
-
-    // large_straight : function () {
-
-    // }
-
-    // chance : function () {
-
-    // }
-
-    // yahtzee : function () {
-
-    // }   
+    yahtzee : function (main) {
+        for (k=1;k<=6;k++){
+            tabk = main.filter(num => num == k)
+            if (tabk.length = 5){
+                return 50
+            }
+        }
+        return 0
+    }   
 
 }
 
@@ -106,3 +145,5 @@ module.exports = yahtzee;
 // for (let k =0; k <= n;k++ )
 //     if (main[k]==1) score ++
 // return score
+
+console.log([2,1,3].sort())
