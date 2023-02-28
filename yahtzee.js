@@ -17,10 +17,10 @@ parti mineur > 63 : bonus de 35 pts
 // exemple : yahtzee.ones du fichier yahtzee.js et l'utiliser dans le test du fichier yahtzee.test.js
 
 const yahtzee = {
-    
-    ones : function (main) {
-        var tab1 = main.filter(num => num == 1) 
-        return tab1.length  
+
+    ones_to_six : function (main,number) {
+        var tab = main.filter(num => num == number) 
+        return tab.reduce((acc, curr) => acc + curr,0)
     },
 
     twos : function (main) {
@@ -117,33 +117,4 @@ const yahtzee = {
 
 }
 
-console.log(yahtzee.ones([1,1,1,4,5]))
-
 module.exports = yahtzee;
-
-
-// return 
-    // var score = 0
-    // var n = main.length;
-    // for (let k =0; k <= n;k++ )
-    //     if (main[k]==1) score ++
-    // return score
-
-    // // main de 5 dés au yahtzee
-    // var list_occurs = []
-    // for(i = 0; i < 5; i++){
-    //     list_occurs.push(randomIntFromInterval(1,6) )
-    // }
-
-
-// function randomIntFromInterval(min, max) { // min and max included 
-//     return Math.floor(Math.random() * (max - min + 1) + min)
-// }
-
-// var score = 0
-// var n = main.length;
-// for (let k =0; k <= n;k++ )
-//     if (main[k]==1) score ++
-// return score
-
-console.log([2,1,3].sort())
