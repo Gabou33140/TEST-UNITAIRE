@@ -13,24 +13,96 @@ bonus => supperieur
 parti mineur > 63 : bonus de 35 pts
 */
 
-function yahtzee(main){
-    // var list_occurs = []
-    // for(i = 0; i < 5; i++){
-    //     list_occurs.push(randomIntFromInterval(1,6) )
+// une fonction avec un parametre, il faut une variation ou une
+// exemple : yahtzee.ones du fichier yahtzee.js et l'utiliser dans le test du fichier yahtzee.test.js
+
+const yahtzee = {
+    
+    ones : function (main) {
+        var tab1 = main.filter(num => num == 1) 
+        return tab1.length  
+    },
+
+    twos : function (main) {
+        var tab1 = main.filter(num => num == 2) 
+        return tab1.length * 2
+    },
+
+    threes : function (main) {
+        var tab1 = main.filter(num => num == 3) 
+        return tab1.length * 3
+    },
+
+    fours : function (main) {
+        var tab1 = main.filter(num => num == 4) 
+        return tab1.length * 4
+    },
+
+    fives : function (main) {
+        var tab1 = main.filter(num => num == 5) 
+        return tab1.length * 5
+    },
+
+    sixs : function (main) {
+        var tab1 = main.filter(num => num == 6) 
+        return tab1.length * 6
+    }
+
+    // three_of_a_kind : function () {
+
     // }
-    return 2
+
+    // four_of_a_kind : function () {
+
+    // }
+
+    // full_house : function () {
+
+    // }
+
+    // small_straight : function () {
+
+    // }
+
+    // large_straight : function () {
+
+    // }
+
+    // chance : function () {
+
+    // }
+
+    // yahtzee : function () {
+
+    // }   
+
+}
+
+console.log(yahtzee.ones([1,1,1,4,5]))
+
+module.exports = yahtzee;
+
+
+// return 
     // var score = 0
     // var n = main.length;
     // for (let k =0; k <= n;k++ )
     //     if (main[k]==1) score ++
     // return score
-}
+
+    // // main de 5 dés au yahtzee
+    // var list_occurs = []
+    // for(i = 0; i < 5; i++){
+    //     list_occurs.push(randomIntFromInterval(1,6) )
+    // }
+
 
 // function randomIntFromInterval(min, max) { // min and max included 
 //     return Math.floor(Math.random() * (max - min + 1) + min)
 // }
 
-console.log(yahtzee([1,1,3,4,5]))
-
-module.exports = yahtzee ;
-
+// var score = 0
+// var n = main.length;
+// for (let k =0; k <= n;k++ )
+//     if (main[k]==1) score ++
+// return score
