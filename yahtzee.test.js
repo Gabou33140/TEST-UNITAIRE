@@ -38,11 +38,11 @@ test('Test full house', () => {
 });
 
 test('Test small straight', () => {
-    expect(yahtzee.straight([1,2,3,4,2])).toBe(30);
+    expect(yahtzee.small_straight([1,2,3,4,2])).toBe(30);
 });
 
 test('Test larg straight', () => {
-    expect(yahtzee.straight([1,2,3,4,5])).toBe(40);
+    expect(yahtzee.large_straight([1,2,3,4,5])).toBe(40);
 });
 
 test('Test chance', () => {

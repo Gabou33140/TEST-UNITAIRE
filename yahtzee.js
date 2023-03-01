@@ -64,7 +64,7 @@ const yahtzee = {
         return result
     },
 
-    straight : function (game) {
+    small_straight : function (game) {
         var tab_sort = game.sort();
         var n = 0;
         for (let k =0; k<tab_sort.length-1;k++){
@@ -72,9 +72,18 @@ const yahtzee = {
                 n++
             } 
         }
-        if (n==4) return 40
-        if (n==3) return 30
-        return 0
+        return result = (n==3) ? 30 : 0 
+    },
+    
+    large_straight : function (game) {
+        var tab_sort = game.sort();
+        var n = 0;
+        for (let k =0; k<tab_sort.length-1;k++){
+            if (tab_sort[k+1]==tab_sort[k]+1){
+                n++
+            } 
+        }
+        return result = (n==4) ? 40 : 0 
     },
 
     chance : function (game) {
@@ -96,8 +105,8 @@ function single_play(type_call = ""){
                 Three_of_a_kind : yahtzee.three_four_five(game),
                 Fours_of_a_kind : yahtzee.three_four_five(game),
                 Full_House : yahtzee.full_house(game),
-                Small_Straight : yahtzee.straight(game),
-                Large_Straight : yahtzee.straight(game),
+                Small_Straight : yahtzee.small_straight(game),
+                Large_Straight : yahtzee.large_straight(game),
                 Chance : yahtzee.chance(game),
                 YAHTZEE : yahtzee.three_four_five(game),
                 TOTAL_SCORE : undefined
